@@ -1,0 +1,32 @@
+# 仮想環境
+venv/
+env/
+virtualenv/
+.314django/
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+
+# Django
+*.log
+db.sqlite3
+db.sqlite3-journal
+/media
+/staticfiles
+local_settings.py
+
+# 環境変数
+.env
+.env.local
+
+# エディタ
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
