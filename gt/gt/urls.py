@@ -16,7 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+#recordlaptimeアプリのviews.pyをrecordlaptimeとしてインポートする。
+import recordlaptime.views as recordlaptime
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #recordlaptimeアプリのviews.pyのindexメソッドを呼び出す。
+    path('recordlaptime/', recordlaptime.index),
 ]
