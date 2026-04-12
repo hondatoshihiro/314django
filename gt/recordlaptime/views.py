@@ -3,4 +3,5 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Hello RecordLaptimeAP!!")
+    msg = request.GET['msg']
+    return HttpResponse('On RecordLaptimeAP You typed: "' + msg + '".')
