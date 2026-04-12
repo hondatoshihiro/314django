@@ -3,5 +3,10 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    msg = request.GET['msg']
-    return HttpResponse('On RecordLaptimeAP You typed: "' + msg + '".')
+    apName = 'On RecordLapTime AP '
+    if 'msg' in request.GET:
+        msg = request.GET['msg']
+        result = apName + 'You typed: "' + msg + '".'
+    else:
+        result = apName + 'Please send msg parameter!'
+    return HttpResponse(result)
