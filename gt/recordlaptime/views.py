@@ -5,15 +5,14 @@ from django.http import HttpResponse
 def index(request):
     params = {
         'title':'recordlaptime/index',
-        'msg':'これはサンプルで作ったページです。',
-        'goto':'next',
+        'msg':'お名前は？',
     }
     return render(request, 'recordlaptime/index.html', params)
 
-def next(request):
+def form(request):
+    msg = request.POST['msg']
     params = {
-        'title':'recordlaptime/next',
-        'msg':'これはもう１つのサンプルページです。',
-        'goto':'index',
+        'title':'recordlaptime/form',
+        'msg':'こんにちは、' + msg + 'さん。',
     }
-    return render(request, 'recordlaptime/index.html', params)
+    return render(request, 'recordlaptime/index.html',params)
