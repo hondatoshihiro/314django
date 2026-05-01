@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .models import Friend
 
 def index(request):
-    data = Friend.objects.all().values()
+    data = Friend.objects.all().values('id','name')
     params = {
         'title':'RecordLaptime',
         'data': data,
