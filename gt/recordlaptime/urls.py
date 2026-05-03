@@ -6,4 +6,5 @@ from . import views
 urlpatterns = [
 #    re_path(r'', RecordLaptimeView.as_view(), name='index'),
     path('', views.index, name='index'),
+    path('create', views.create, name='create'),
 ]
