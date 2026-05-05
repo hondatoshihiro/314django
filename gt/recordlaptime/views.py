@@ -13,17 +13,13 @@ def index(request):
     return render(request, 'recordlaptime/index.html', params)
 
 def create(request):
+    if request.method == 'POST':
+        obj = Friend()
+        recordlaptime = RecordLaptimeForm(request.POST, instance=obj)
+        recordlaptime.save()
+        return redirect(to='/recordlaptime')
     params = {
         'title': 'RecordLaptime',
         'form': RecordLaptimeForm(),
     }
-    if request.method == 'POST':
-        name = request.POST['name']
-        mail = request.POST['mail']
-        gender = 'gender' in request.POST
-        age = int(request.POST['age'])
-        birth = request.POST['birthday']
-        friend = Friend(name = name, mail = mail, gender = gender, age = age, birthday = birth)
-        friend.save()
-        return redirect(to='/recordlaptime')
     return render(request, 'recordlaptime/create.html', params)
