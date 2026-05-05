@@ -36,3 +36,16 @@ def edit(request, num):
         'form': RecordLaptimeForm(instance=obj),
     }
     return render(request, 'recordlaptime/edit.html', params)
+
+def delete(request, num):
+    friend = Friend.objects.get(id=num)
+    if request.method == "POST":
+        friend.delete()
+        return redirect(to='/recordlaptime')
+    params = {
+        'title': 'RecordLaptime',
+        'id': num,
+        'obj': friend,
+    }
+    return render(request, 'recordlaptime/delete.html', params)
+    
