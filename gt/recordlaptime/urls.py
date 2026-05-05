@@ -7,4 +7,5 @@ urlpatterns = [
 #    re_path(r'', RecordLaptimeView.as_view(), name='index'),
     path('', views.index, name='index'),
     path('create', views.create, name='create'),
+    path('edit/<int:num>', views.edit, name='edit'),
 ]

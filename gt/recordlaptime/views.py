@@ -23,3 +23,16 @@ def create(request):
         'form': RecordLaptimeForm(),
     }
     return render(request, 'recordlaptime/create.html', params)
+
+def edit(request, num):
+    obj = Friend.objects.get(id=num)
+    if request.method == "POST":
+        recordlaptime = RecordLaptimeForm(request.POST, instance=obj)
+        recordlaptime.save()
+        return redirect(to='/recordlaptime')
+    params = {
+        'title': 'RecordLaptime',
+        'id': num,
+        'form': RecordLaptimeForm(instance=obj),
+    }
+    return render(request, 'recordlaptime/edit.html', params)
